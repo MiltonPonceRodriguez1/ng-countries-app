@@ -12,6 +12,7 @@ import { Country } from '../../interfaces/country.interface';
 export class CountryPageComponent implements OnInit {
   
   public country?: Country;
+  public hasLoaded: boolean = false;
 
   constructor( 
     private activatedRoute: ActivatedRoute,
@@ -28,6 +29,10 @@ export class CountryPageComponent implements OnInit {
         if (!country) return this.router.navigateByUrl('');
         return this.country = country;
     });
+  }
+
+  onLoad(): void{
+    this.hasLoaded = true;
   }
 
 }
