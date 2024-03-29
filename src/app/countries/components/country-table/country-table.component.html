@@ -21,7 +21,14 @@
                 <td>{{ i + 1}}</td>
                 <td>{{ country.flag }}</td>
                 <td>
-                    <img [src]="country.flags.svg" [alt]="country.flags.alt">
+                    <img 
+                        [src]="country.flags.svg" 
+                        [alt]="country.flags.alt" 
+                        (load)="onLoad()"
+                        [ngStyle]="{ display: hasLoaded ? '' : 'none' }"
+                        class="animate__animated animate__backInRight">
+
+                    <img *ngIf="!hasLoaded" src="assets/svg/rings.svg" alt="loader">
                 </td>
                 <td>{{ country.name.common }}</td>
                 <td>{{ country.capital }}</td>

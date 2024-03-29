@@ -11,7 +11,12 @@ import { Country } from '../../interfaces/country.interface';
   `
 })
 export class CountryTableComponent {
+  public hasLoaded: boolean = false;
 
   @Input()
   public countries: Country[] = [];
+
+  onLoad(): void {
+    this.hasLoaded = true;
+  }
 }
